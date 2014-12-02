@@ -73,164 +73,8 @@
 </script>
 <body>
     <div class="exercise">
-    <div class="problems">
-		<div id="case1">
-			<div class="vars">				<var id="test">(function(){Khan.scratchpad.disable();})()</var>
-				<var id="data">
-					(function()
-					{
-						var count=new Array(4); 
-						var kind=new Array(6);	
-						var name=new Array(4);	
-						var rename=new Array(4);
-						var unit=new Array(6);	
-						var picWidth=new Array(4);	
-						var pheight=new Array(4);
-						var chCount=new Array(6);	
-						for(i=0;i&lt;4;i++)	
-						{
-							count[i]=0;
-							kind[i]=0;
-						}
-						
-						var n1=0;
-						var n2=0;
-						while(n1&lt;4)
-						{
-							var v=randRange(1,4);
-							if(isIn(kind,v))
-								continue;
-							kind[n1]=v;
-							n1++;
-						}
-						while(n2&lt;4)
-						{
-							var v=randRange(1,4);
-							if(isIn(count,v))
-								continue;
-							count[n2]=v;
-							n2++;
-						}
-						
-						for(i=0;i&lt;4;i++)
-						{
-							var elem="grid";
-							var elemQst="qst";
-							var path="images/";
-							switch(i)
-							{
-								case 0:elem+="11";elemQst+="11";break;
-								case 1:elem+="12";elemQst+="12";break;
-								case 2:elem+="21";elemQst+="21";break;
-								case 3:elem+="22";elemQst+="22";break;
-							}
-							switch(kind[i])
-							{
-								case 1:path+="morning.jpg";picWidth[i]="100%";pheight="100%";name[i]="學校升旗是";rename[i]="上午";break;
-								case 2:path+="have_lunch.jpg";picWidth[i]="100%";pheight="100%";name[i]="吃午餐是";rename[i]="中午";break;
-								case 3:path+="afternoon.jpg";picWidth[i]="100%";pheight="100%";name[i]="到公園玩是";rename[i]="下午";break;
-								case 4:path+="night.jpg";picWidth[i]="100%";pheight="100%";name[i]="寫功課是";rename[i]="晚上";break;
-								default:break;
-							}
-							loadImg(elem,Khan.urlBase+path,1,picWidth[i],pheight);
-                            
-						}
-						
-						return [name,rename];
-					})()
-				</var>
-				<var id="time">data[1]</var>
-				<var id="my_th">data[0]</var>
-			</div>
-			<div class="question">
-					<p class="problem">
-						<p>想一想表示的時間，在下列圖片中選擇上午、中午、下午、或晚上。</p>
-					<table class="bordered">
-							<tr>
-								<td class="bordered" width="5%" align="center"><code>（1）</code></td>
-								<td class="bordered" width="45%">
-									<div id="grid11"></div>
-								</td>
-								<td class="bordered" width="5%" align="center"><code>（2）</code></td>
-								<td class="bordered" width="45%">
-									<div id="grid12"></div>									
-								</td>
-							</tr>
-							<tr>
-							<td class="bordered" width="5%" align="center"></td>
-							<td class="bordered" width="45%" align="center"><var>data[0][0]</var>
-								<select id="select_1">
-									<option ></option>
-									<option >上午</option>
-									<option >中午</option>
-									<option >下午</option>
-									<option >晚上</option>
-								</select>
-							</td>
-							<td class="bordered" width="5%" align="center"></td>
-							<td class="bordered" width="45%" align="center"><var>data[0][1]</var>
-								<select id="select_2">
-									<option ></option>
-									<option >上午</option>
-									<option >中午</option>
-									<option >下午</option>
-									<option >晚上</option>
-								</select>
-							</td>
-							</tr>
-							<tr>
-							<td class="bordered" width="5%" align="center"><code>（3）</code></td>
-							<td class="bordered" width="45%">							<div id="grid21"></div>
-							</td>
-							<td class="bordered" width="5%" align="center"><code>（4）</code></td>
-							<td class="bordered" width="45%">							<div id="grid22"></div>
-							</td>
-							</tr>
-							<tr>
-							<td class="bordered" width="5%" align="center"></td>
-							<td class="bordered" width="45%" align="center"><var>data[0][2]</var>
-								<select id="select_3">
-									<option ></option>
-									<option >上午</option>
-									<option >中午</option>
-									<option >下午</option>
-									<option >晚上</option>
-								</select>
-							</td>
-							<td class="bordered" width="5%" align="center"></td>
-							<td class="bordered" width="45%" align="center"><var>data[0][3]</var>
-							<select id="select_4">
-								<option ></option>
-								<option >上午</option>
-								<option >中午</option>
-								<option >下午</option>
-								<option >晚上</option>
-							</select>
-							</td>
-							</tr>
-					</table>
-				</p>
-			</div>
-			<div class="solution" data-type="multiple">
-			<div class="sol" data-type="custom">
-					<div class="guess">[document.getElementById("select_1").value,document.getElementById("select_2").value,document.getElementById("select_3").value,document.getElementById("select_4").value]</div>
-					
-					<div class="validator-function">
-						if(guess[0]==time[0] && guess[1]==time[1] && guess[2]==time[2] && guess[3]==time[3]){
-							return true;
-						}
-					</div>
-				<div class="example">請在下拉列表中選擇正確答案</div>
-			</div>
-			</div>
-			<div class="hints">
-				<p><code>(1)\enspace</code><var>my_th[0]</var><span class="hint_pink"><var>time[0]</var></span>。</p>
-				<p><code>(2)\enspace</code><var>my_th[1]</var><span class="hint_pink"><var>time[1]</var></span>。</p>
-				<p><code>(3)\enspace</code><var>my_th[2]</var><span class="hint_pink"><var>time[2]</var></span>。</p>
-				<p style="font-weight:normal"><code>(4)\enspace</code><var>my_th[3]</var><span class="hint_pink"><var>time[3]</var></span>。</p>
-			        
-			</div>
-		</div>
+    <div class="problems">				<div id="case1">			<div class="vars">				<var id="data">					(function()					{						var count=new Array(4); 						var kind=new Array(6);							var name=new Array(4);							var rename=new Array(4);						var unit=new Array(6);							var picWidth=new Array(4);							var pheight=new Array(4);						var chCount=new Array(6);							for(i=0;i&lt;4;i++)							{							count[i]=0;							kind[i]=0;						}												var n1=0;						var n2=0;						while(n1&lt;4)						{							var v=randRange(1,4);							if(isIn(kind,v))								continue;							kind[n1]=v;							n1++;						}						while(n2&lt;4)						{							var v=randRange(1,4);							if(isIn(count,v))								continue;							count[n2]=v;							n2++;						}												for(i=0;i&lt;1;i++)						{							var elem="grid11";							var elemQst="qst11";							var path="images/";														switch(kind[i])							{								case 1:path+="morning.jpg";picWidth[i]="100%";pheight="100%";name[i]="學校升旗是";rename[i]="上午";break;								case 2:path+="have_lunch.jpg";picWidth[i]="100%";pheight="100%";name[i]="吃午餐是";rename[i]="中午";break;								case 3:path+="afternoon.jpg";picWidth[i]="100%";pheight="100%";name[i]="到公園玩是";rename[i]="下午";break;								case 4:path+="night.jpg";picWidth[i]="100%";pheight="100%";name[i]="寫功課是";rename[i]="晚上";break;								default:break;							}							loadImg(elem,Khan.urlBase+path,1,picWidth[i],pheight);                          						}						return [name[0],rename[0]];					})()				</var>				<var id="time">data[1]</var>				<var id="my_th">data[0]</var>			</div>			<div class="question">					<p class="problem">						<p>想一想表示的時間，在下面圖片中選擇上午、中午、下午、或晚上。</p>					<table class="bordered">							<tr>															<td class="bordered" width="45%">									<div id="grid11"></div>								</td>															</tr>					</table>				</p>			</div>			<div class="solution" data-type="multiple">				<p><var>data[0]</var><span class="sol" data-type="list" data-choices="['','上午','中午','下午','晚上']"><var>time</var></span></p>				<p class="example">在下拉列表中選擇正確的答案</p>			</div>			<div class="hints">				<p><var>my_th</var><span class="hint_pink"><var>time</var></span>。</p>			</div>		</div>				
+		
 		<div id="case2">
 			<div class="vars">
 				<var id="data">
@@ -1057,8 +901,7 @@
                         graph.point_f.moveTo(7.3,coord[KK[5]],"graph.line1");
                 </div>
 			</div>
-		</div>
-	</div>
+		</div>			</div>
 	</div>
 </body>
 </html>
