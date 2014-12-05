@@ -97,7 +97,7 @@
 			</div>
 
     <div class="hints">
-	    <p>依照降冪的方式排列多項式：</p>
+	    <p>依照升冪的方式排列多項式：</p>
 		<div>
 		<p> <code>\enspace\enspace<var>J</var>x-<var>K</var>x^{2}+<var>L</var>+<var>M_one_handle</var>x</code></p>
 		<p><code>=<var>L</var>+<var>M_one_handle</var>x+<var>J</var>x-<var>K</var>x^{2}</code></p>
@@ -111,8 +111,8 @@
     </div>
 	</div>
 	
-	<div id="case4" data-ensure="R_1!=0 && R_2!=0 && R_3!=0">
-            <div class="vars">
+	<div id="case4">
+            <div class="vars"  data-ensure="R_1!=0 && R_2!=0 && R_3!=0">
 			    <var id="J">randRange(2,6)</var>
 				<var id="K">randRangeNonZero(-10,10)</var>
 				<var id="L">randRange(1,8)</var>
@@ -135,7 +135,7 @@
 			</div>
 
     <div class="hints">
-	    <p>依照降冪的方式排列多項式：</p>
+	    <p>依照升冪的方式排列多項式：</p>
 		<div>
 		<p> <code>\enspace\enspace<var>J</var>x^{2}+<var>K</var>-<var>L_show</var>x-<var>M</var>x^{2}+<var>N_show</var>x-<var>O</var></code></p>
 		<p><code>=<var>K</var>-<var>O</var>-<var>L_show</var>x+<var>N_show</var>x+<var>J</var>x^{2}-<var>M</var>x^{2}</code></p>
